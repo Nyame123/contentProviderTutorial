@@ -14,7 +14,9 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.startup.AppInitializer;
 
+import com.bisapp.mycontentprovider.startup_setup.LibraryAInitializer;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -53,7 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
       /*  Uri singleUri = ContentUris.withAppendedId(UserDictionary.Words.CONTENT_URI, 1);
         queryWordData();*/
+      initializeComponents();
 
+    }
+
+    private void initializeComponents(){
+        AppInitializer.getInstance(this).initializeComponent(LibraryAInitializer.class);
     }
 
     @AfterPermissionGranted(RC_CALL_APP_PERM)
